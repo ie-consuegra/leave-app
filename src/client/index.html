@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base target="_top">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.min.css">
+  <title>Leave Management App</title>
+  <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+  <!-- CSS -->
+
+  <!-- build:style inline css -->
+  <!-- /build -->
+</head>
+<body>
+  <div class="wrapper" x-data="xData" x-init = "
+  setTimeout(function () {
+    email = 'test@mailtest.com';
+  }, 2000);
+  ">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-two-fifths box">
+          <h2 class="title">Control de ausencia</h2>
+          <form action="" method="post">
+            <div class="field">
+              <label for="user" class="label">Usuario</label>
+              <div class="control">
+                <input class="input" type="text" name="username" id="username" placeholder="email" x-model = "email">
+              </div>
+            </div>
+            <div class="field">
+              <label for="startDate" class="label">Desde</label>
+              <div class="control">
+                <input class="input" type="datetime-local" name="startDate" id="startDate">
+              </div>
+            </div>
+            <div class="field">
+              <label for="endDate" class="label">Hasta</label>
+              <div class="control">
+                <input class="input" type="datetime-local" name="endDate" id="endDate">
+              </div>
+            </div>
+            <div class="field">
+              <label for="reason" class="label">Razón</label>
+              <div class="control">
+                <textarea class="textarea" name="reason" id="reason" rows="2"></textarea>
+              </div>
+            </div>
+            <div class="field">
+              <div class="file">
+                <label class="file-label">
+                  <input class="file-input" type="file" name="resume" @change = "file = $event.target.files[0];">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="bi bi-upload"></i>
+                    </span>
+                    <span class="file-label">
+                      Adjuntar archivo
+                    </span>
+                  </span>
+                  <template x-if = "file">
+                    <span class="file-name" x-text = "file.name">
+                    </span>
+                  </template>
+                </label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <button type="submit" class="button is-info">Enviar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+
+  <!-- build:script inline js -->
+  <!-- /build -->
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "ic-apps-script-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/backend.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "html-build": "^1.0.1",
+    "html-minifier-terser": "^6.0.2"
+  }
+}
