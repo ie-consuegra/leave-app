@@ -15,21 +15,27 @@
   <!-- /build -->
 </head>
 <body>
-  <div class="wrapper" x-data="xData" x-init = "
-  setTimeout(function () {
-    email = 'test@mailtest.com';
-  }, 2000);
-  ">
+  <div class="wrapper" x-data="xData" x-init = "initializeApp()">
     <div class="container">
       <div class="columns">
         <div class="column is-two-fifths box">
-          <h2 class="title">Control de ausencia</h2>
+          <h2 class="title">Control de permisos (Ausencia)</h2>
           <form action="" method="post">
             <div class="field">
-              <label for="user" class="label">Usuario</label>
-              <div class="control">
-                <input class="input" type="text" name="username" id="username" placeholder="email" x-model = "email">
+              <label for="user" class="label">Correo empleado</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input" type="text" name="username" id="username" placeholder="micorreo@brandcolombia.co" x-model = "userEmail" x-bind:class="userEmailIsOk ? 'is-success':'is-warning'">
+                <span class="icon is-small is-left">
+                  <i class="bi bi-person"></i>
+                </span>
+                <span class="icon is-small is-right" x-show="userEmailIsOk">
+                  <i class="bi bi-check-lg"></i>
+                </span>
+                <span class="icon is-small is-right" x-show="!userEmailIsOk">
+                  <i class="bi bi-exclamation-triangle"></i>
+                </span>
               </div>
+              <p class="help is-danger" x-show="!userEmailIsOk">Por favor digita tu correo corporativo</p>
             </div>
             <div class="field">
               <label for="startDate" class="label">Desde</label>
