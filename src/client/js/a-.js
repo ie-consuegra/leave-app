@@ -17,6 +17,37 @@ const xData = {
       })
       .getUserEmail();
   },
+  saveFile() {
+    const { file } = this;
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.onload = (event) => {
+        const fileObj = {
+          filename: file.name,
+          mimeType: file.type,
+          bytes: [...new Int8Array(event.target.result)],
+        };
+
+        google
+          .script
+          .run
+          .withSuccessHandler()
+          .uploadFile(fileObj);
+      }
+      fileReader.readAsArrayBuffer(file);
+    }
+  },
+  submit() {
+    const formElem = document.getElementById('permissionRequestForm');
+    this.saveFile();
+    google
+      .script
+      .run
+      .withSuccessHandler(() => {
+        console.log('Enviado');
+      })
+      .setNewPermissionRequest(formElem);
+  },
   initializeApp() {
     this.fetchLoggedUserEmail();
   },

@@ -20,7 +20,7 @@
       <div class="columns">
         <div class="column is-two-fifths box">
           <h2 class="title">Control de permisos (Ausencia)</h2>
-          <form action="" method="post">
+          <form id="permissionRequestForm" @submit.prevent="submit()">
             <div class="field">
               <label for="user" class="label">Correo empleado</label>
               <div class="control has-icons-left has-icons-right">
@@ -58,7 +58,7 @@
             <div class="field">
               <div class="file">
                 <label class="file-label">
-                  <input class="file-input" type="file" name="resume" @change = "file = $event.target.files[0];">
+                  <input class="file-input" type="file" name="file" id="file" @change = "file = $event.target.files[0];">
                   <span class="file-cta">
                     <span class="file-icon">
                       <i class="bi bi-upload"></i>
