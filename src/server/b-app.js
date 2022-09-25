@@ -9,7 +9,7 @@ function setNewPermissionRequest(formData) {
 function uploadFile(fileObj) {
   const blob = Utilities.newBlob(fileObj.bytes, fileObj.mimeType, fileObj.filename);
 
-  const folderId = '1XiCVHzGEU9d1DWF-_Un-zg87dgoIUaFA'; /* Temporarily hardcoded */
+  const folderId = getFolderId('leaveAppFolder');
 
   const destinationFolder = DriveApp.getFolderById(folderId);
   const file = DriveApp.createFile(blob);

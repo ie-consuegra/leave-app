@@ -12,5 +12,9 @@
   "devDependencies": {
     "html-build": "^1.0.1",
     "html-minifier-terser": "^6.0.2"
+  },
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.55",
+    "uglify-js": "^3.17.1"
   }
 }
