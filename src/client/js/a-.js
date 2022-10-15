@@ -8,14 +8,14 @@ const xData = {
       .script
       .run
       .withSuccessHandler((email) => {
-        if (email.includes('@')) {
-          self.userEmail = email;
-          self.userEmailIsOk = true;
-        } else {
-          self.userEmailIsOk = false;
-        }
+        self.userEmail = email;
+        self.validateEmail();
       })
       .getUserEmail();
+  },
+  validateEmail() {
+    const emailPattern = /^[a-z0-9._]+@brandcolombia\.co$/;
+    this.userEmailIsOk = this.userEmail.match(emailPattern);
   },
   saveFile() {
     const { file } = this;

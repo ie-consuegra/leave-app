@@ -24,7 +24,7 @@
             <div class="field">
               <label for="user" class="label">Correo empleado</label>
               <div class="control has-icons-left has-icons-right">
-                <input class="input" type="text" name="username" id="username" placeholder="micorreo@brandcolombia.co" x-model = "userEmail" x-bind:class="userEmailIsOk ? 'is-success':'is-warning'">
+                <input class="input" type="text" name="username" id="username" placeholder="micorreo@brandcolombia.co" x-model = "userEmail" x-bind:class="userEmailIsOk ? 'is-success':'is-warning'" @input="validateEmail()">
                 <span class="icon is-small is-left">
                   <i class="bi bi-person"></i>
                 </span>
